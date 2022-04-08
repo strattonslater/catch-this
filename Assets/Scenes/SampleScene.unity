@@ -457,6 +457,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: PLAYER
       objectReference: {fileID: 0}
+    - target: {fileID: 3982774088203454769, guid: bdeb7367445064812830613c5dee3b9e, type: 3}
+      propertyPath: _rigidBody
+      value: 
+      objectReference: {fileID: 1721130356}
+    - target: {fileID: 3982774088203454769, guid: bdeb7367445064812830613c5dee3b9e, type: 3}
+      propertyPath: _movementforce
+      value: 166
+      objectReference: {fileID: 0}
+    - target: {fileID: 3982774088203454772, guid: bdeb7367445064812830613c5dee3b9e, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5462815
+      objectReference: {fileID: 0}
+    - target: {fileID: 3982774088203454772, guid: bdeb7367445064812830613c5dee3b9e, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0924938
+      objectReference: {fileID: 0}
+    - target: {fileID: 3982774088203454772, guid: bdeb7367445064812830613c5dee3b9e, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.037552923
+      objectReference: {fileID: 0}
+    - target: {fileID: 3982774088203454772, guid: bdeb7367445064812830613c5dee3b9e, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.6327988
+      objectReference: {fileID: 0}
     - target: {fileID: 3982774088203454775, guid: bdeb7367445064812830613c5dee3b9e, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -568,6 +592,11 @@ Transform:
   m_Father: {fileID: 1017374074}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &1721130356 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 3982774088203454773, guid: bdeb7367445064812830613c5dee3b9e, type: 3}
+  m_PrefabInstance: {fileID: 997265761}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1825843417
 GameObject:
   m_ObjectHideFlags: 0
