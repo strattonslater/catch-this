@@ -10,12 +10,12 @@ public class GAMECONTROLLER : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Instantiate(PLAYER);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Instantiate(PLAYER);
+        
     }
 }
