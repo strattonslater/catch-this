@@ -19,7 +19,7 @@ public class Boundaries : MonoBehaviour {
     // Update is called once per frame
     void LateUpdate(){
         Vector3 viewPos = gameObject.transform.position;
-        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + objectWidth*3, screenBounds.x - objectWidth*3);
+        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x * -1 + objectWidth*2, screenBounds.x - objectWidth*2);
         viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y * -1 + objectHeight/8, screenBounds.y - objectHeight);
         gameObject.transform.position = viewPos;
     }
