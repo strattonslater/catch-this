@@ -6,7 +6,6 @@ public class GAMECONTROLLER : MonoBehaviour
 {
     [SerializeField] private GameObject PLAYER;
     [SerializeField] private GameObject THROWER;
-
     [SerializeField] private Camera MainCamera;
 
     public GameObject activePlayer;

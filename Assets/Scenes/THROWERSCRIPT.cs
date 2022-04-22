@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class THROWERSCRIPT : MonoBehaviour
 {
+    [SerializeField] private GameObject PLAYERSCRIPT;
+
     // Start is called before the first frame update
     void Start()
     {
