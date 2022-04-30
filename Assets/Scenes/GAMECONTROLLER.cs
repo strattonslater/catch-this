@@ -6,7 +6,7 @@ using TMPro;
 public class GAMECONTROLLER : MonoBehaviour
 {
 
-    [SerializeField] private TextMeshPro _timeText;
+    [SerializeField] private TextMeshProUGUI _timeText;
     [SerializeField] private GameObject PLAYER;
     [SerializeField] private GameObject THROWER;
     [SerializeField] private Camera MainCamera;
