@@ -10,21 +10,31 @@ public class GAMECONTROLLER : MonoBehaviour
     [SerializeField] private GameObject PLAYER;
     [SerializeField] private GameObject THROWER;
     [SerializeField] private Camera MainCamera;
+    [SerializeField] private GameObject TitleScreen;
 
     public float timeValue=60;
 
     public GameObject activePlayer;
     private Vector3 playerPosition;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        activePlayer = Instantiate(PLAYER, new Vector3(0, -4f, 0), Quaternion.identity);
-        activePlayer.GetComponent<Boundaries>().MainCamera=MainCamera;
+        timeValue = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+            if (Input.GetKeyDown(KeyCode.Space))
+    {
+        TitleScreen.SetActive(false);
+        activePlayer = Instantiate(PLAYER, new Vector3(0, -4f, 0), Quaternion.identity);
+        activePlayer.GetComponent<Boundaries>().MainCamera=MainCamera;
+        timeValue = 61;
+    }
+
         playerPosition = activePlayer.transform.position;
         Debug.Log(playerPosition);
 
