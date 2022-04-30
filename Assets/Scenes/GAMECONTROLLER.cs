@@ -13,6 +13,7 @@ public class GAMECONTROLLER : MonoBehaviour
     [SerializeField] private GameObject TitleScreen;
 
     public float timeValue=60;
+    bool spacePressed = false;
 
     public GameObject activePlayer;
     private Vector3 playerPosition;
@@ -27,12 +28,13 @@ public class GAMECONTROLLER : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && spacePressed == false)
     {
         TitleScreen.SetActive(false);
         activePlayer = Instantiate(PLAYER, new Vector3(0, -4f, 0), Quaternion.identity);
         activePlayer.GetComponent<Boundaries>().MainCamera=MainCamera;
         timeValue = 61;
+        spacePressed = true;
     }
 
         playerPosition = activePlayer.transform.position;
