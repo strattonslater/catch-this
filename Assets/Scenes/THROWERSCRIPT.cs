@@ -6,27 +6,23 @@ public class THROWERSCRIPT : MonoBehaviour
 {
     [SerializeField] private GAMECONTROLLER gameController;
 
+    [SerializeField] private particleCollision[] emitters;
+
     GameObject activePlayer;
 
     bool isStarted = false;
 
-    // The target marker.
-    public Transform target;
-
-    // Angular speed in radians per sec.
-    public float speed = 1.0f;
-
-    // Start is called before the first frame update
-
     public void setGameController(GAMECONTROLLER GC)
     {
         gameController = GC;
+        for(int i=0;i<emitters.Length;i++){
+            emitters[i].setGameController(GC);
+        }
     }
     public void throwerStart()
     {
         isStarted = true;
         activePlayer = gameController.getPlayer();
-        //target.position = activePlayer.transform.position;
     }
 
     // Update is called once per frame
@@ -52,10 +48,15 @@ public class THROWERSCRIPT : MonoBehaviour
         // // Calculate a rotation a step closer to the target and applies rotation to this object
         // transform.rotation = Quaternion.LookRotation(newDirection);
 
-        transform.LookAt(transform.position + new Vector3(0,0,1), activePlayer.transform.position);
+        //transform.LookAt(transform.position + new Vector3(0,0,1), activePlayer.transform.position);
+        // transform.LookAt(activePlayer.transform, new Vector3(1,0,0));
+        transform.right = activePlayer.transform.position - transform.position;
+        
         // Vector3 vectorToTarget = activePlayer.transform.position - gameObject.transform.position;
         // float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
         // Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         // gameObject.transform.rotation = Quaternion.Slerp(gameObject.transform.rotation, q, Time.deltaTime * speed);
     }
+
+
 }

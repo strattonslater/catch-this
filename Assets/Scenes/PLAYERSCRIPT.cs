@@ -55,8 +55,8 @@ public class PLAYERSCRIPT : MonoBehaviour
             }
     }
 
-    // void OnParticleCollision(THROWER)
-    // {
-    //     Debug.Log("Ouch!");
-    // }
+    void OnParticleCollision(GameObject other)
+    {
+        Debug.Log("Ouch!");
+    }
 }
