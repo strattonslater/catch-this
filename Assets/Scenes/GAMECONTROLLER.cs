@@ -8,21 +8,31 @@ public class GAMECONTROLLER : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI _timeText;
     [SerializeField] private GameObject PLAYER;
-    [SerializeField] private GameObject THROWER;
+    [SerializeField] private THROWERSCRIPT THROWER;
     [SerializeField] private Camera MainCamera;
     [SerializeField] private GameObject TitleScreen;
 
     public float timeValue=60;
     bool spacePressed = false;
 
-    public GameObject activePlayer;
+    private GameObject activePlayer;
     private Vector3 playerPosition;
-
-
+    //
+    public GameObject getPlayer(){
+        return activePlayer;
+    }
     // Start is called before the first frame update
     void Start()
     {
         timeValue = 0;
+    }
+
+    public void gameStart()
+    {
+        activePlayer = Instantiate(PLAYER, new Vector3(0, -4f, 0), Quaternion.identity);
+        activePlayer.GetComponent<Boundaries>().MainCamera=MainCamera;
+        THROWER.setGameController(gameObject.GetComponent<GAMECONTROLLER>());
+        THROWER.throwerStart();
     }
 
     // Update is called once per frame
@@ -31,14 +41,14 @@ public class GAMECONTROLLER : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) && spacePressed == false)
     {
         TitleScreen.SetActive(false);
-        activePlayer = Instantiate(PLAYER, new Vector3(0, -4f, 0), Quaternion.identity);
-        activePlayer.GetComponent<Boundaries>().MainCamera=MainCamera;
         timeValue = 61;
         spacePressed = true;
+        gameStart();
     }
-
+        if(spacePressed)
         playerPosition = activePlayer.transform.position;
-        Debug.Log(playerPosition);
+
+        //Debug.Log(playerPosition);
 
         if (timeValue > 0)
         {

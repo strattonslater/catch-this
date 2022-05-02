@@ -102,6 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rigidBody: {fileID: 2504201120840112328}
   _movementforce: 166
+  THROWER: {fileID: 0}
+  part: {fileID: 0}
 --- !u!61 &2504201120840112329
 BoxCollider2D:
   m_ObjectHideFlags: 0

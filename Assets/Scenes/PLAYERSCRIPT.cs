@@ -6,9 +6,14 @@ public class PLAYERSCRIPT : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _rigidBody;
     [SerializeField] private int _movementforce;
+    [SerializeField] private GameObject THROWER;
+
+    public ParticleSystem part;
+
     // Start is called before the first frame update
     void Start()
     {
+        // part = GetComponent<THROWER>();
         
     }
 
@@ -49,4 +54,9 @@ public class PLAYERSCRIPT : MonoBehaviour
                 _rigidBody.AddForce(new Vector2(-_movementforce, 0));
             }
     }
+
+    // void OnParticleCollision(THROWER)
+    // {
+    //     Debug.Log("Ouch!");
+    // }
 }
