@@ -28,10 +28,10 @@ public class THROWERSCRIPT : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isStarted==true)
-        {
-        Debug.Log(activePlayer.transform.position);
-        }
+        // if(isStarted==true)
+        // {
+        // Debug.Log(activePlayer.transform.position);
+        // }
 
         // // Determine which direction to rotate towards
         // Vector3 targetDirection = target.position - transform.position;

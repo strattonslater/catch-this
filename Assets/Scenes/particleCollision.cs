@@ -22,8 +22,8 @@ public class particleCollision : MonoBehaviour
         
     }
 
-    void OnParticleCollision(GameObject other)
-    {
-        Debug.Log("Ouch!");
-    }
+    // void OnParticleCollision(GameObject other)
+    // {
+    //     Debug.Log("Ouch!");
+    // }
 }

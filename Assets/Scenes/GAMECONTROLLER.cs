@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using TMPro;
+
 
 public class GAMECONTROLLER : MonoBehaviour
 {
@@ -11,6 +13,9 @@ public class GAMECONTROLLER : MonoBehaviour
     [SerializeField] private THROWERSCRIPT THROWER;
     [SerializeField] private Camera MainCamera;
     [SerializeField] private GameObject TitleScreen;
+    [SerializeField] private GameObject EndScreen;
+
+    public PLAYERSCRIPT pS;
 
     public float timeValue=60;
     bool spacePressed = false;
@@ -33,20 +38,44 @@ public class GAMECONTROLLER : MonoBehaviour
         activePlayer.GetComponent<Boundaries>().MainCamera=MainCamera;
         THROWER.setGameController(gameObject.GetComponent<GAMECONTROLLER>());
         THROWER.throwerStart();
+        EndScreen.SetActive(false);
     }
 
+    public void startScreen() 
+    {
+        
+    }
+
+    public void endScreen() 
+    {
+        EndScreen.SetActive(true);
+    }
+
+    
     // Update is called once per frame
     void Update()
     {
-            if (Input.GetKeyDown(KeyCode.Space) && spacePressed == false)
-    {
-        TitleScreen.SetActive(false);
-        timeValue = 61;
-        spacePressed = true;
-        gameStart();
-    }
+
+        if (Input.GetKeyDown(KeyCode.Space) && spacePressed == false)
+        {
+            
+            timeValue = 61;
+            spacePressed = true;
+            gameStart();
+            TitleScreen.SetActive(false);
+        }
+
+        if(pS.wasHit == true)
+        {
+            SceneManager.LoadScene("SampleScene");
+            Debug.Log("Ouch");
+            endScreen();
+        }
+
         if(spacePressed)
-        playerPosition = activePlayer.transform.position;
+        {
+            playerPosition = activePlayer.transform.position;
+        }
 
         //Debug.Log(playerPosition);
 
