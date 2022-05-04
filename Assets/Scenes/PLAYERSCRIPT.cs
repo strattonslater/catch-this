@@ -60,6 +60,41 @@ public class PLAYERSCRIPT : MonoBehaviour
             {
                 _rigidBody.AddForce(new Vector2(-_movementforce, 0));
             }
+
+                            if (Input.GetKeyDown(KeyCode.W))
+                {
+                    _rigidBody.AddForce(new Vector2(0, _movementforce));
+                }
+                        if (Input.GetKeyDown(KeyCode.S))
+                {
+                    _rigidBody.AddForce(new Vector2(0, -_movementforce));
+                }
+                        if (Input.GetKeyDown(KeyCode.A))
+                {
+                    _rigidBody.AddForce(new Vector2(-_movementforce, 0));
+                }
+                        if (Input.GetKeyDown(KeyCode.D))
+                {
+                    _rigidBody.AddForce(new Vector2(_movementforce, 0));
+                }
+                
+                        if (Input.GetKeyUp(KeyCode.W))
+                {
+                    _rigidBody.AddForce(new Vector2(0, -_movementforce));
+                }
+                        if (Input.GetKeyUp(KeyCode.S))
+                {
+                    _rigidBody.AddForce(new Vector2(0, _movementforce));
+                }
+                        if (Input.GetKeyUp(KeyCode.A))
+                {
+                    _rigidBody.AddForce(new Vector2(_movementforce, 0));
+                }
+                        if (Input.GetKeyUp(KeyCode.D))
+                {
+                    _rigidBody.AddForce(new Vector2(-_movementforce, 0));
+                }
+
         }
     }
 
@@ -69,10 +104,12 @@ public class PLAYERSCRIPT : MonoBehaviour
     }
     void OnParticleCollision(GameObject other)
     {
-        someBoolean = true;
-        Invoke("endWait", 5.0f);
-        // Debug.Log("Ouch!");
+        gameObject.GetComponent<Renderer>().material.color = Color.red;
         wasHit = true;
+        someBoolean = true;
+        Invoke("endWait", 2.0f);
+        // Debug.Log("Ouch!");
+        
         // Debug.Log(wasHit);
     }
 }

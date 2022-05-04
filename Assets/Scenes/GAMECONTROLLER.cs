@@ -14,8 +14,10 @@ public class GAMECONTROLLER : MonoBehaviour
     [SerializeField] private Camera MainCamera;
     [SerializeField] private GameObject TitleScreen;
     [SerializeField] private GameObject EndScreen;
+    [SerializeField] private GameObject actualTHROWER;
 
-    public PLAYERSCRIPT pS;
+    PLAYERSCRIPT playerScript;
+    //public GameObject PLAYER;
 
     public float timeValue=60;
     bool spacePressed = false;
@@ -30,10 +32,12 @@ public class GAMECONTROLLER : MonoBehaviour
     void Start()
     {
         timeValue = 0;
+        playerScript = PLAYER.GetComponent<PLAYERSCRIPT>();
     }
 
     public void gameStart()
     {
+        actualTHROWER.SetActive(true);
         activePlayer = Instantiate(PLAYER, new Vector3(0, -4f, 0), Quaternion.identity);
         activePlayer.GetComponent<Boundaries>().MainCamera=MainCamera;
         THROWER.setGameController(gameObject.GetComponent<GAMECONTROLLER>());
@@ -65,11 +69,11 @@ public class GAMECONTROLLER : MonoBehaviour
             TitleScreen.SetActive(false);
         }
 
-        if(pS.wasHit == true)
+        if(playerScript.wasHit == true)
         {
-            SceneManager.LoadScene("SampleScene");
+            //SceneManager.LoadScene("SampleScene");
             Debug.Log("Ouch");
-            endScreen();
+            //endScreen();
         }
 
         if(spacePressed)
@@ -77,7 +81,11 @@ public class GAMECONTROLLER : MonoBehaviour
             playerPosition = activePlayer.transform.position;
         }
 
-        //Debug.Log(playerPosition);
+        if(timeValue<1 && timeValue>0)
+                {
+                    EndScreen.SetActive(true);
+                    actualTHROWER.SetActive(false);
+                }
 
         if (timeValue > 0)
         {
@@ -87,6 +95,8 @@ public class GAMECONTROLLER : MonoBehaviour
         {
             timeValue = 0;
         }
+
+        
 
         DisplayTime(timeValue);
     }
